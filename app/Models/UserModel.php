@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
-use App\Entities\FolhaPontoEntity;
 use CodeIgniter\Model;
 
-class FolhaPontoModel extends Model
+class UserModel extends Model
 {
-    protected $table            = 'folha_pontos';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = FolhaPontoEntity::class;
+    protected $returnType       = UserModel::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = [];
-
-
-
 
     // Dates
     protected $useTimestamps = false;
@@ -32,7 +28,7 @@ class FolhaPontoModel extends Model
     protected $cleanValidationRules = true;
 
     // Callbacks
-    protected $allowCallbacks = false;
+    protected $allowCallbacks = true;
     protected $beforeInsert   = [];
     protected $afterInsert    = [];
     protected $beforeUpdate   = [];
@@ -41,10 +37,4 @@ class FolhaPontoModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getUser($userId)
-    {
-        $userModel = new UserModel();
-        return $userModel->find($userId);
-    }
 }
