@@ -60,6 +60,6 @@ class FolhaPontosMigration extends Migration
 
     public function down()
     {
-        //$this->forge->dropTable('folha_pontos');
+        $this->forge->dropTable('folha_pontos');
     }
 }
