@@ -56,4 +56,18 @@ class FolhaPontoEntity extends Entity
 
 
     }
+
+    public function isBusinessDay()
+    {
+        $dateForCheck = Carbon::create($this->entry_date) ;
+        $hollidays = config('config\HollidaysOfYear')->getHollidays();
+        if($dateForCheck->isWeekend())
+        {
+            return 'danger';
+        }else if(in_array($dateForCheck->format('Y-m-d'),$hollidays))
+        {
+            return  'warning';
+        }
+        return '';
+    }
 }
