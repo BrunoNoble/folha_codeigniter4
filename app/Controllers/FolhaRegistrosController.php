@@ -28,12 +28,14 @@ class FolhaRegistrosController extends BaseController
             $itens = $model->where('entry_date >=', $secondFilter['entry_date'])
                 ->where('entry_date <=', $secondFilter['exit_date'])
                 ->findAll();
+
         }else
         {
             $itens = $this->getFilterData();
         }
 
         $session->set('filtro', $firstFilter);
+        $session->set('filtroDate', $secondFilter);
 
 
 
